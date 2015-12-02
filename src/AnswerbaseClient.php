@@ -87,7 +87,6 @@ class AnswerbaseClient
         try {
             return $this->client->request('GET', $path.'?'.$query);
         } catch (\Exception $e) {
-            \Log::error($e);
             return false;
         }
     }
@@ -106,7 +105,6 @@ class AnswerbaseClient
                 'form_params' => $parameters
             ]);
         } catch (\Exception $e) {
-            \Log::error($e);
             return false;
         }
     }

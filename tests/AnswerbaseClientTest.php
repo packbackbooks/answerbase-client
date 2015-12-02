@@ -1,21 +1,21 @@
 <?php
 
 use Mockery as m;
-use App\Clients\AnswerbaseClient;
+use Packback\Answerbase\AnswerbaseClient;
 
-class AnswerbaseClientTest extends TestCase
+class AnswerbaseClientTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
         parent::setUp();
-
-        $this->client = new AnswerbaseClient();
 
         $config = [
             'api_key' => uniqid(),
             'base_uri' => 'http://example.answerbase.com/api/',
             'timeout' => '10.0',
         ];
+
+        $this->client = new AnswerbaseClient($config);
 
         $this->client->client = m::mock('GuzzleHttp\Client');
     }
