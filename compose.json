@@ -1,0 +1,39 @@
+{
+    "name": "packbackbooks/answerbase-client",
+    "type": "library",
+    "description": "Simply access the Answerbase API using PHP",
+    "keywords": [
+        "questions",
+        "answers",
+        "api client",
+        "answerbase"
+    ],
+    "homepage": "https://github.com/packbackbooks/answerbase-client",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Karl Hughes",
+            "email": "karl@packback.co",
+            "homepage": "http://packbackbooks.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">=4.6",
+        "phpunit/php-code-coverage": "~2.0",
+        "mockery/mockery": ">=0.9.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Packback\\Prices\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Packback\\Prices\\Test\\": "test/src/"
+        }
+    }
+}
