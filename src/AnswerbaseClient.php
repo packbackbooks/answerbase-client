@@ -5,7 +5,8 @@ use GuzzleHttp\Psr7\Response;
 
 class AnswerbaseClient
 {
-    public $client, $parameters;
+    public $client;
+    public $parameters;
     
     public function __construct($config = [])
     {
