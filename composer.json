@@ -28,12 +28,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Packback\\Prices\\": "src/"
+            "Packback\\Answerbase\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Packback\\Prices\\Test\\": "test/src/"
+            "Packback\\Answerbase\\Test\\": "tests/src/"
         }
     }
 }
