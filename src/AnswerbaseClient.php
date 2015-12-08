@@ -49,7 +49,6 @@ class AnswerbaseClient
     {
         $defaults = [
             'categoryIds' => $category_id,
-            'orderby' => 'newest',
             'fullquestiondetails' => 'true',
             'maxresults' => '0',
         ];
