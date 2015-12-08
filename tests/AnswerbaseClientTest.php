@@ -215,7 +215,6 @@ class AnswerbaseClientTest extends \PHPUnit_Framework_TestCase
         $category_id = uniqid();
         $defaults = [
             'categoryIds' => $category_id,
-            'orderby' => 'newest',
             'fullquestiondetails' => 'true',
             'maxresults' => '0',
         ];
