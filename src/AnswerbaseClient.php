@@ -30,14 +30,12 @@ class AnswerbaseClient
      * These are all read-only API endpoints.
      */
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getQuestionsList($parameters = [])
     {
-        $response = $this->get('getquestionslist.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'getquestionslist.aspx', $parameters);
     }
 
     public function getQuestionsByCategoryId($category_id = null, $parameters = [])
@@ -48,239 +46,191 @@ class AnswerbaseClient
             'maxresults' => '0',
         ];
 
-        $response = $this->get('getquestionslist.aspx', array_merge($defaults, $parameters));
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'getquestionslist.aspx', array_merge($defaults, $parameters));
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function searchQuestions($parameters = [])
     {
-        $response = $this->get('searchquestions.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'searchquestions.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getSimilarQuestions($parameters = [])
     {
-        $response = $this->get('getsimilarquestions.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'getsimilarquestions.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getQuestion($parameters = [])
     {
-        $response = $this->get('getquestion.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'getquestion.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getFeaturedQuestion($parameters = [])
     {
-        $response = $this->get('getfeaturedquestion.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'getfeaturedquestion.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getFeaturedQuestions($parameters = [])
     {
-        $response = $this->get('getfeaturedquestions.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'getfeaturedquestions.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getUpdatedQuestions($parameters = [])
     {
-        $response = $this->get('getupdatedquestions.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'getupdatedquestions.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getRecentlyViewedQuestionsByUser($parameters = [])
     {
-        $response = $this->get('getquestionsviewedbyuser.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'getquestionsviewedbyuser.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getQuestionsAskedByUser($parameters = [])
     {
-        $response = $this->get('getquestionsaskedbyuser.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'getquestionsaskedbyuser.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getQuestionsAnsweredByUser($parameters = [])
     {
-        $response = $this->get('getquestionsansweredbyuser.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'getquestionsansweredbyuser.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getQuestionswithHighestRatedAnswersByUser($parameters = [])
     {
-        $response = $this->get('getquestionswithhighestratedanswersbyuser.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'getquestionswithhighestratedanswersbyuser.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getQuestionsFollowedByUser($parameters = [])
     {
-        $response = $this->get('getquestionswatchedbyuser.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'getquestionswatchedbyuser.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getQuestionsCommentedByUser($parameters = [])
     {
-        $response = $this->get('getquestionscommentedbyuser.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'getquestionscommentedbyuser.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getQuestionsAskedDirectlytoUser($parameters = [])
     {
-        $response = $this->get('getquestionsaskeddirectlytouser.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'getquestionsaskeddirectlytouser.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getAnswer($parameters = [])
     {
-        $response = $this->get('getanswer.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'getanswer.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getComment($parameters = [])
     {
-        $response = $this->get('getcomment.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'getcomment.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getTopExperts($parameters = [])
     {
-        $response = $this->get('gettopexperts.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'gettopexperts.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getStaffExperts($parameters = [])
     {
-        $response = $this->get('getstaffexperts.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'getstaffexperts.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getUser($parameters = [])
     {
-        $response = $this->get('getuser.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'getuser.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getUserByEmail($email = '')
     {
-        $response = $this->get('getuser.aspx', ['useremail' => $email]);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'getuser.aspx', ['useremail' => $email]);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getUserPointSummary($parameters = [])
     {
-        $response = $this->get('getuserpoints.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'getuserpoints.aspx', $parameters);
     }
+
+    /**
+     * @codeCoverageIgnore
+     */
     public function getUserSubscriptions($parameters = [])
     {
-        $response = $this->get('getusersubscriptions.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'getusersubscriptions.aspx', $parameters);
     }
+
+    /**
+     * @codeCoverageIgnore
+     */
     public function getUsers($parameters = [])
     {
-        $response = $this->get('getusers.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'getusers.aspx', $parameters);
     }
+
+    /**
+     * @codeCoverageIgnore
+     */
     public function getFeaturedExpert($parameters = [])
     {
-        $response = $this->get('getfeaturedexpert.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'getfeaturedexpert.aspx', $parameters);
     }
 
     public function getCategories($parameters = [])
@@ -290,52 +240,39 @@ class AnswerbaseClient
             'restrictToFirstLevel' => 'true',
         ];
 
-        $response = $this->get('getcategories.aspx', array_merge($defaults, $parameters));
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'getcategories.aspx', array_merge($defaults, $parameters));
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getCategory($parameters = [])
     {
-        $response = $this->get('getcategory.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'getcategory.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getTags($parameters = [])
     {
-        $response = $this->get('gettags.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'gettags.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getTag($parameters = [])
     {
-        $response = $this->get('gettag.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'gettag.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function searchTags($parameters = [])
     {
-        $response = $this->get('searchtags.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'searchtags.aspx', $parameters);
     }
 
     /**
@@ -345,219 +282,195 @@ class AnswerbaseClient
      * These are all API endpoints that write data to Answerbase.
      */
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function askQuestion($parameters = [])
     {
-        $response = $this->get('askquestion.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('get', 'askquestion.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function registerUser($parameters = [])
     {
         return $this->createUser($parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function createUser($parameters = [])
     {
-        $response = $this->post('registeruser.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return false;
+        return $this->request('post', 'registeruser.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function removeFollowedQuestion($parameters = [])
     {
-        $response = $this->post('removewatchedquestion.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('post', 'removewatchedquestion.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function addUserSubscriptions($parameters = [])
     {
-        $response = $this->post('addusersubscriptions.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('post', 'addusersubscriptions.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function removeUserSubscriptions($parameters = [])
     {
-        $response = $this->post('removeuserubscriptions.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('post', 'removeuserubscriptions.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function reportQuestion($parameters = [])
     {
-        $response = $this->post('reportquestion.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('post', 'reportquestion.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function reportAnswer($parameters = [])
     {
-        $response = $this->post('reportanswer.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('post', 'reportanswer.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function reportComment($parameters = [])
     {
-        $response = $this->post('reportcomment.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('post', 'reportcomment.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function postAnswer($parameters = [])
     {
-        $response = $this->post('postanswer.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('post', 'postanswer.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function postComment($parameters = [])
     {
-        $response = $this->post('postcomment.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('post', 'postcomment.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function postRelatedContent($parameters = [])
     {
-        $response = $this->post('postrelatedcontent.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('post', 'postrelatedcontent.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function postImage($parameters = [])
     {
-        $response = $this->post('postimage.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('post', 'postimage.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function voteAnswer($parameters = [])
     {
-        $response = $this->post('voteanswer.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('post', 'voteanswer.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function voteComment($parameters = [])
     {
-        $response = $this->post('votecomment.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('post', 'votecomment.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function updateQuestion($parameters = [])
     {
-        $response = $this->post('updatequestion.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('post', 'updatequestion.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function updateAnswer($parameters = [])
     {
-        $response = $this->post('updateanswer.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('post', 'updateanswer.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function updateComment($parameters = [])
     {
-        $response = $this->post('updatecomment.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('post', 'updatecomment.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function updateUserData($parameters = [])
     {
-        $response = $this->post('updateuserdata.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return false;
+        return $this->request('post', 'updateuserdata.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function updateUserPermissions($parameters = [])
     {
-        $response = $this->post('updateuserpermissions.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return false;
+        return $this->request('post', 'updateuserpermissions.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function updateEmailSettings($parameters = [])
     {
-        $response = $this->post('updateuseremailsettings.aspx', $parameters);
-
-        if ($response && $response->getStatusCode() == 200) {
-            return $this->getData($response);
-        }
-        return [];
+        return $this->request('post', 'updateuseremailsettings.aspx', $parameters);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function followQuestion($parameters = [])
     {
-        $response = $this->post('watchquestion.aspx', $parameters);
+        return $this->request('post', 'watchquestion.aspx', $parameters);
+    }
+
+    private function request($method = 'get', $endpoint = '', $parameters = [])
+    {
+        if ($method=='post') {
+            $response = $this->post ($endpoint, $parameters);
+        } else {
+            $response = $this->get ($endpoint, $parameters);
+        }
 
         if ($response && $response->getStatusCode() == 200) {
             return $this->getData($response);
         }
-        return [];
+        // an error occured!
+        return null;
     }
 
     private function get($path = '', $parameters = [])
