@@ -27,7 +27,8 @@ class AnswerbaseClient
     /**
      * STANDARD API METHODS
      *
-     * These methods are available to those that have the Professional plan or higher. These are all read-only API endpoints.
+     * These methods are available to those that have the Professional plan or higher.
+     * These are all read-only API endpoints.
      */
 
     public function getQuestionsList($parameters = [])
@@ -341,7 +342,8 @@ class AnswerbaseClient
     /**
      * ADVANCED API METHODS
      *
-     * These methods are available to those that have the Business plan or higher. These are all API endpoints that write data to Answerbase.
+     * These methods are available to those that have the Business plan or higher.
+     * These are all API endpoints that write data to Answerbase.
      */
 
     public function askQuestion($parameters = [])
