@@ -461,9 +461,9 @@ class AnswerbaseClient
     private function request($method = 'get', $endpoint = '', $parameters = [])
     {
         if ($method=='post') {
-            $response = $this->post ($endpoint, $parameters);
+            $response = $this->post($endpoint, $parameters);
         } else {
-            $response = $this->get ($endpoint, $parameters);
+            $response = $this->get($endpoint, $parameters);
         }
 
         if ($response && $response->getStatusCode() == 200) {
