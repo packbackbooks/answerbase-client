@@ -1,7 +1,6 @@
 <?php namespace Packback\Answerbase;
 
 use GuzzleHttp\Client as HttpClient;
-use GuzzleHttp\Psr7\Response;
 
 /**
  * This is a client that allows use of the Answerbase API in PHP.
@@ -573,7 +572,7 @@ class AnswerbaseClient
         }
     }
 
-    private function getData(Response $response)
+    private function getData($response)
     {
         return json_decode($response->getBody()->getContents());
     }
