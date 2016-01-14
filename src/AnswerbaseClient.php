@@ -45,7 +45,6 @@ class AnswerbaseClient
             'fullquestiondetails' => 'true',
             'maxresults' => '0',
         ];
-
         return $this->request('get', 'getquestionslist.aspx', array_merge($defaults, $parameters));
     }
 
@@ -478,11 +477,7 @@ class AnswerbaseClient
         $this->parameters = array_merge($this->parameters, $parameters);
         $query = http_build_query($this->parameters);
 
-        try {
-            return $this->client->request('GET', $path.'?'.$query);
-        } catch (\Exception $e) {
-            return false;
-        }
+        return $this->client->request('GET', $path.'?'.$query);
     }
 
     private function getData($response)
@@ -494,12 +489,8 @@ class AnswerbaseClient
     {
         $query = http_build_query($this->parameters);
 
-        try {
-            return $this->client->request('POST', $path.'?'.$query, [
-                'form_params' => $parameters
-            ]);
-        } catch (\Exception $e) {
-            return false;
-        }
+        return $this->client->request('POST', $path.'?'.$query, [
+            'form_params' => $parameters
+        ]);
     }
 }

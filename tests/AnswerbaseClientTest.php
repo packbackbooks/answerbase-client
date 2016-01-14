@@ -134,6 +134,9 @@ class AnswerbaseClientTest extends \PHPUnit_Framework_TestCase
         $this->assertEmpty($result);
     }
 
+    /**
+     * @expectedException \Exception
+     */
     public function testItCanNotGetUserByEmailWhenExceptionThrown()
     {
         $email = uniqid();
@@ -150,8 +153,6 @@ class AnswerbaseClientTest extends \PHPUnit_Framework_TestCase
             ->andThrow('\Exception');
 
         $result = $this->client->getUserByEmail($email);
-
-        $this->assertEmpty($result);
     }
 
     public function testItCanGetCategoriesWhenExist()
@@ -248,7 +249,6 @@ class AnswerbaseClientTest extends \PHPUnit_Framework_TestCase
         $category_id = uniqid();
         $defaults = [
             'categoryIds' => $category_id,
-            'orderby' => 'newest',
             'fullquestiondetails' => 'true',
             'maxresults' => '0',
         ];
