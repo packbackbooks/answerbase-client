@@ -203,6 +203,14 @@ class AnswerbaseClient
     /**
      * @codeCoverageIgnore
      */
+    public function getUserByUsername($email = '')
+    {
+        return $this->request('get', 'getuser.aspx', ['username' => $email]);
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
     public function getUserPointSummary($parameters = [])
     {
         return $this->request('get', 'getuserpoints.aspx', $parameters);
