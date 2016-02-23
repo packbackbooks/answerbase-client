@@ -1,6 +1,21 @@
 # Changelog
 All Notable changes to this repo will be documented in this file
 
+## 0.2.1 - 2016-02-23
+
+### Added
+- New getUserByUsername() method
+- More unit tests for the above method
+
+### Deprecated
+- Nothing
+
+### Fixed
+- Nothing
+
+### Security
+- Nothing
+
 ## 0.2.0 - 2015-12-18
 
 ### Added
