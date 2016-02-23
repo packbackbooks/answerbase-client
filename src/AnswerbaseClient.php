@@ -192,17 +192,11 @@ class AnswerbaseClient
         return $this->request('get', 'getuser.aspx', $parameters);
     }
 
-    /**
-     * @codeCoverageIgnore
-     */
     public function getUserByEmail($email = '')
     {
         return $this->request('get', 'getuser.aspx', ['useremail' => $email]);
     }
 
-    /**
-     * @codeCoverageIgnore
-     */
     public function getUserByUsername($username = '')
     {
         return $this->request('get', 'getuser.aspx', ['username' => $username]);
