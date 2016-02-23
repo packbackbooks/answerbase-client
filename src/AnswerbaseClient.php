@@ -203,9 +203,9 @@ class AnswerbaseClient
     /**
      * @codeCoverageIgnore
      */
-    public function getUserByUsername($email = '')
+    public function getUserByUsername($username = '')
     {
-        return $this->request('get', 'getuser.aspx', ['username' => $email]);
+        return $this->request('get', 'getuser.aspx', ['username' => $username]);
     }
 
     /**
