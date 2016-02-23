@@ -155,6 +155,79 @@ class AnswerbaseClientTest extends \PHPUnit_Framework_TestCase
         $result = $this->client->getUserByEmail($email);
     }
 
+    public function testItCanGetUserByUsernameWhenUserExists()
+    {
+        $username = uniqid();
+
+        $requestString = 'getuser.aspx?'.$this->buildRequestString(['username' => $username]);
+
+        $response = m::mock('GuzzleHttp\Psr7\Response');
+
+        $jsonResponse = $this->generateJsonUserResponse();
+
+        $this->client->client->shouldReceive('request')
+            ->with('GET', $requestString)
+            ->once()
+            ->andReturn($response);
+        $response->shouldReceive('getStatusCode')
+            ->once()
+            ->andReturn('200');
+        $response->shouldReceive('getBody')
+            ->once()
+            ->andReturn($response);
+        $response->shouldReceive('getContents')
+            ->once()
+            ->andReturn($jsonResponse);
+
+        $result = $this->client->getUserByUsername($username);
+
+        $this->assertNotNull($result->user);
+    }
+
+    public function testItCanNotGetUserByUsernameWhenUserNotExists()
+    {
+        $username = uniqid();
+
+        $requestString = 'getuser.aspx?'.$this->buildRequestString(['username' => $username]);
+
+        $response = m::mock('GuzzleHttp\Psr7\Response');
+
+        $jsonResponse = $this->generateJsonUserResponse();
+
+        $this->client->client->shouldReceive('request')
+            ->with('GET', $requestString)
+            ->once()
+            ->andReturn($response);
+        $response->shouldReceive('getStatusCode')
+            ->once()
+            ->andReturn('400');
+
+        $result = $this->client->getUserByUsername($username);
+
+        $this->assertEmpty($result);
+    }
+
+    /**
+     * @expectedException \Exception
+     */
+    public function testItCanNotGetUserByUsernameWhenExceptionThrown()
+    {
+        $username = uniqid();
+
+        $requestString = 'getuser.aspx?'.$this->buildRequestString(['username' => $username]);
+
+        $response = m::mock('GuzzleHttp\Psr7\Response');
+
+        $jsonResponse = $this->generateJsonUserResponse();
+
+        $this->client->client->shouldReceive('request')
+            ->with('GET', $requestString)
+            ->once()
+            ->andThrow('\Exception');
+
+        $result = $this->client->getUserByUsername($username);
+    }
+
     public function testItCanGetCategoriesWhenExist()
     {
         $defaults = [
